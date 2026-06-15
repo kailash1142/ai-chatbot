@@ -1,0 +1,56 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+</head>
+<body>
+
+    <h1>My AI Chatbot</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="message"
+            placeholder="Ask something..."
+            required
+        >
+
+        <button type="submit">
+            Send
+        </button>
+    </form>
+
+    <h2>Chat History</h2>
+
+    {% for msg in messages %}
+        <div>
+            <p><strong>You:</strong> {{ msg.question }}</p>
+            <p><strong>Bot:</strong> {{ msg.answer }}</p>
+            <hr>
+        </div>
+    {% empty %}
+        <p>No chat history yet.</p>
+    {% endfor %}
+
+</body>
+</html>
+
+
+
+<div class="container mt-4">
+    <h2>AI Chatbot</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="message">
+        <button class="btn btn-primary mt-2">
+            Send
+        </button>
+    </form>
+</div>
